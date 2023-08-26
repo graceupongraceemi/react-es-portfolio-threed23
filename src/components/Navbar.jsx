@@ -20,7 +20,12 @@ const Navbar = () => {
             setActive('');
             window.scrollTo(0, 0);
           }}
-        ></Link>
+        >
+          <img src={logo} alt='logo' className='w-9 h-9 object-contain' />
+          <p>
+            ES <span>| Developer</span>{' '}
+          </p>
+        </Link>
       </div>
     </nav>
   );

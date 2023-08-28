@@ -26,6 +26,13 @@ const Navbar = () => {
             ES <span className='sm:block hidden'>| Developer</span>{' '}
           </p>
         </Link>
+        <ul className='list-none hidden sm:flex flex-row gap-10'>
+          {navLinks.map((link) => {
+            <li>
+              <a href={`#${link.id}`}>{link.title}</a>
+            </li>;
+          })}
+        </ul>
       </div>
     </nav>
   );

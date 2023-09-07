@@ -1,9 +1,53 @@
-import React from 'react'
+import {
+  VerticalTimeline,
+  VerticalTimelineElement
+} from 'react-vertical-timeline-component';
+
+import { motion } from 'framer-motion';
+
+import 'react-vertical-timeline-component/style.min.css';
+
+import { styles } from '../styles';
+import { experiences } from '../constants';
+import { SectionWrapper } from '../hoc';
+import { textVarient } from '../utils/motion';
+
+const ExperienceCard = ({ experience }) => {
+  <VerticalTimeline
+    contentStyle={{
+      background: '#1d1836',
+      color: '#fff'
+    }}
+    contentArrowStyle={{}}
+  >
+    {experience.date}
+  </VerticalTimeline>;
+};
 
 const Experience = () => {
   return (
-    <div>Experience</div>
-  )
-}
+    <>
+      <motion.div variants={textVariant()}>
+        <p className={`${styles.sectionSubText} text-center`}>
+          What I have done so far
+        </p>
+        <h2 className={`${styles.sectionHeadText} text-center`}>
+          Work Experience.
+        </h2>
+      </motion.div>
 
-export default Experience
+      <div className='mt-20 flex flex-col'>
+        <VerticalTimeline>
+          {experiences.map((experience, index) => (
+            <ExperienceCard
+              key={`experience-${index}`}
+              experience={experience}
+            />
+          ))}
+        </VerticalTimeline>
+      </div>
+    </>
+  );
+};
+
+export default SectionWrapper(Experience, 'work');

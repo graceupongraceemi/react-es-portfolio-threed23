@@ -22,4 +22,4 @@ const SectionWrapper = (Component, idName) =>
     );
   };
 
-export default StarWrapper;
+export default SectionWrapper;

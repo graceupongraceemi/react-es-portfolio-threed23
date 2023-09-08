@@ -12,17 +12,31 @@ import { experiences } from '../constants';
 import { SectionWrapper } from '../hoc';
 import { textVarient } from '../utils/motion';
 
-const ExperienceCard = ({ experience }) => {
+const ExperienceCard = ({ experience }) => (
   <VerticalTimeline
     contentStyle={{
       background: '#1d1836',
       color: '#fff'
     }}
-    contentArrowStyle={{}}
+    contentArrowStyle={{ borderRight: '7px solid #232631' }}
+    date={experience.date}
+    iconStyle={{ background: experience.iconBg }}
+    icon={
+      <div>
+        <img
+          src={experience.icon}
+          alt={experience.company_name}
+          className='w-[60%] h-[60%]
+          object-contain'
+        />
+      </div>
+    }
   >
-    {experience.date}
+    <div>
+      <h3 className='text-white text-[24px] font-bold'>{experience.title}</h3>
+    </div>
   </VerticalTimeline>;
-};
+)
 
 const Experience = () => {
   return (

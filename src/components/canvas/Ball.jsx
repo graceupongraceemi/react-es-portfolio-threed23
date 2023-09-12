@@ -25,7 +25,12 @@ const Ball = (props) => {
           polygonOffsetFactor={-5}
           flatShading
         />
-        <Decal position={[0, 0, 1]} map={decal} />
+        <Decal
+          position={[0, 0, 1]}
+          rotation={[2 * Math.PI, o, 6.25]}
+          flatShading
+          map={decal}
+        />
       </mesh>
     </Float>
   );

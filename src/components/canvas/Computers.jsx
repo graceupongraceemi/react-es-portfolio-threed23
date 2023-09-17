@@ -29,8 +29,8 @@ const Computers = ({ isMobile }) => {
   );
 };
 
-const ComputersCanvas = () => {
-  cost[(isMobile, setIsMobile)] = useState(false);
+const ComputerCanvas = () => {
+  const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
     // Add a listener for changes to the screen size
@@ -44,9 +44,10 @@ const ComputersCanvas = () => {
       setIsMobile(event.matches);
     };
 
+    // Add the callback function as a listener for changes to the media query
     mediaQuery.addEventListener('change', handleMediaQueryChange);
 
-    // Add the callback function as a listener for changes to the media query
+    // Remove the listener when the component is unmounted
     return () => {
       mediaQuery.removeEventListener('change', handleMediaQueryChange);
     };
@@ -74,4 +75,4 @@ const ComputersCanvas = () => {
   );
 };
 
-export default Computers;
+export default ComputerCanvas;

@@ -13,8 +13,26 @@ const FeedbackCard = ({
   company,
   image
 }) => (
-  <motion.div>
-    <p>{testimonial}</p>
+  <motion.div
+    variants={faceIn('', 'spring', index * 0.5, 0.75)}
+    className='bg-black-200 p-10 rounded-3xl xs:w-[320px] x-full'
+  >
+    <p className='text-white font-black text-[48px]'>"</p>
+
+    <div className='mt-1'>
+      <p>{testimonial}</p>
+
+      <div className='mt-7 flex justify-between items-center gap-1'>
+        <div className='flex-1 flex flex-col'>
+          <p>
+            <span>@</span> {name}
+          </p>
+          <p>
+            {designation} of {company}
+          </p>
+        </div>
+      </div>
+    </div>
   </motion.div>
 );
 

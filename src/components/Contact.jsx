@@ -24,9 +24,38 @@ const Contact = () => {
   };
 
   const handleSubmit = (e) => {
-    // service_kx7i7a1
-    // template_h6usczi
-    // service_kx7i7a1
+    emailjs
+      .send(
+        'service_kx7i7a1',
+        'template_h6usczi',
+        {
+          from_name: form.name,
+          to_name: 'Emi',
+          from_email: form.email,
+          to_email: 'graceupongraceemi@gmail.com',
+          message: form.message
+        },
+        'g2DfLFq0HDLr4z7IG'
+      )
+      .then(
+        () => {
+          setLoading(false);
+          alert('Thank you. I will get back to you as soon as possible');
+
+          setForm({
+            name: '',
+            email: '',
+            message: ''
+          });
+        },
+        (error) => {
+          setLoading(false);
+
+          console.log(error);
+
+          alert('Something went wrong.');
+        }
+      );
   };
 
   return (
